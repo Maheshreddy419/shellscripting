@@ -48,7 +48,7 @@ then
     dnf install python3 -y &>>LOG_FILE
     VALIDATE $? "python3"
 else
-    echo "${YELLOW} python3 is already installed...Noting to do!! ${NONE}" | tee -a $LOG_FILE
+    echo -e "${YELLOW} python3 is already installed...Noting to do!! ${NONE}" | tee -a $LOG_FILE
 fi
 
 dnf list installed nginx &>>LOG_FILE
@@ -59,6 +59,6 @@ then
     dnf install nginx -y &>>LOG_FILE
     VALIDATE $? "nginx"
 else
-    echo "${YELLOW} nginx is already installed...Nothing to do !! ${NONE}" | tee -a $LOG_FILE
+    echo -e "${YELLOW} nginx is already installed...Nothing to do !! ${NONE}" | tee -a $LOG_FILE
 fi
 
