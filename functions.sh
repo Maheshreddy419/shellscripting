@@ -14,18 +14,18 @@ mkdir -p $LOGS_FOLDER
 echo "Script started at time: $(date)"|tee -a $LOG_FILE
 if [ $USERID -ne 0 ]
 then
-    echo -e "$RED ERROR:: Login User is not root user acccess denied!!!! $NONE" | tee -a $LOG_FILE
+    echo -e "${RED} ERROR:: Login User is not root user acccess denied!!!! ${NONE}" | tee -a $LOG_FILE
     exit 1
 else
-    echo -e "$GREEN Root user login successfully..... $NONE" | tee -a $LOG_FILE
+    echo -e "${GREEN} Root user login successfully..... ${NONE}" | tee -a $LOG_FILE
 fi
 
 VALIDATE() {
     if [ $1 -eq 0 ]
     then
-        echo -e "$2 Installation is ..... $GREEN SUCESS $NONE" | tee -a $LOG_FILE
+        echo -e "$2 Installation is ..... ${GREEN} SUCESS ${NONE}" | tee -a $LOG_FILE
     else
-        echo -e "$2 Installation is ...... $RED FAILURE $NONE" | tee -a $LOG_FILE
+        echo -e "$2 Installation is ...... ${RED} FAILURE ${NONE}" | tee -a $LOG_FILE
         exit 1
     fi
 }
@@ -37,7 +37,7 @@ then
     dnf install mysql -y &>>LOG_FILE
     VALIDATE $? "Mysql"
 else
-    echo -e "$YELLOW Mysql is already installed...!!" | tee -a $LOG_FILE
+    echo -e "${YELLOW} Mysql is already installed...!!" | tee -a $LOG_FILE
 fi
 
 dnf list installed python3 &>>LOG_FILE
@@ -48,7 +48,7 @@ then
     dnf install python3 -y &>>LOG_FILE
     VALIDATE $? "python3"
 else
-    echo "$YELLOW python3 is already installed...!!" | tee -a $LOG_FILE
+    echo "${YELLOW} python3 is already installed...!!" | tee -a $LOG_FILE
 fi
 
 dnf list installed nginx &>>LOG_FILE
@@ -59,6 +59,6 @@ then
     dnf install nginx -y &>>LOG_FILE
     VALIDATE $? "nginx"
 else
-    echo "$YELLOW nginx is already installed...!!" | tee -a $LOG_FILE
+    echo "${YELLOW} nginx is already installed...!!" | tee -a $LOG_FILE
 fi
 
