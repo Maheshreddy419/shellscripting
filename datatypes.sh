@@ -3,7 +3,7 @@
 NUMBER1=100
 NUMBER2=200
 
-TIMESTAMP=$(date "+%Y-%m-%d %H:%M:%S")
+TIMESTAMP=$(date "+%Y-%m-%d %H:%M:%S:%s")
 
 echo "Script Executed at:: $TIMESTAMP"
 
