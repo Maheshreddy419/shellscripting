@@ -31,15 +31,15 @@ VALIDATE() {
     fi
 }
 
-for package in {PACKAGES[@]}
+for package in ${PACKAGES[@]}
 do
     dnf list installed $package &>>LOG_FILE
 
     if [ $? -ne 0 ]
     then
         echo "$package is not installed....."
-        dnf install $package -y &>>LOG_FILE
-        VALIDATE $? "$package"
+        dnf install ${package} -y &>>LOG_FILE
+        VALIDATE $? "${package}"
     else
         echo -e "${YELLOW} $package is already installed...!! ${NONE}" | tee -a $LOG_FILE
     fi  
